@@ -1,7 +1,7 @@
 {
     "protocol":
     {
-        "no_of_time_steps": [500],
+        "no_of_time_steps": [10000],
         "time_step": [0.001],
         "baroreflex":
         {
@@ -17,7 +17,7 @@
             "activations":
             [
                 {
-                    "t_start_s": [2],
+                    "t_start_s": [5],
                     "t_stop_s": [40]
                 }
             ]
@@ -29,9 +29,9 @@
                 {
                     "level": ["circulation"],
                     "variable": ["aorta_resistance"],
-                    "t_start_s": [3],
-                    "t_stop_s": [4],
-                    "total_change": [150]
+                    "t_start_s": [5],
+                    "t_stop_s": [10],
+                    "total_change": [10]
                 },
                 {
                     "level": ["circulation"],
@@ -308,8 +308,8 @@
     },
     "output_handler":
     {
-        "output_data_path": ["/mnt/gpfs2_4m/scratch/hsh245/new_master/growth_AS/data.csv"],
-        "mesh_output_path": ["/mnt/gpfs2_4m/scratch/hsh245/new_master/growth_AS/mesh_output"],
+        "output_data_path": ["/mnt/gpfs2_4m/scratch/sba431/growth_AS/data.csv"],
+        "mesh_output_path": ["/mnt/gpfs2_4m/scratch/sba431/growth_AS/mesh_output"],
         "mesh_object_to_save":
         [
             "displacement",
@@ -335,7 +335,7 @@
       	    "stimulus_sheet_normal",
       	    "setpoint_sheet_normal"
         ],
-        "growth_mesh_path": ["/mnt/gpfs2_4m/scratch/hsh245/new_master/growth_AS/mesh_output"],
+        "growth_mesh_path": ["/mnt/gpfs2_4m/scratch/sba431/growth_AS/mesh_output"],
         "dumping_spatial_in_average":[true],
         "frequency_n": [10]
 
