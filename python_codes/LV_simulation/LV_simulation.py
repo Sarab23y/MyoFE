@@ -824,8 +824,8 @@ class LV_simulation():
                 self.handle_output(output_struct)
                 return
         
-            if i % 10000 == 0:
-                self.handle_output(output_struct)
+            '''if i % 10000 == 0:
+                self.handle_output(output_struct)'''
         
 
         # Now build up global data holders for 
