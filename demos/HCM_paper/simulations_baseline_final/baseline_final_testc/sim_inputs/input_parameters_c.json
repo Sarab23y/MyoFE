@@ -35,7 +35,7 @@
             true
         ],
         "mesh_path": [
-            "../demos/HCM_paper/simulations_baseline_final/baseline_final_testk1/sim_inputs/ellipsoidal.hdf5"
+            "../demos/HCM_paper/simulations_baseline_final/baseline_final_testc/sim_inputs/ellipsoidal.hdf5"
         ],
         "function_spaces": [
             {
@@ -185,7 +185,7 @@
                     "semi_structural"
                 ],
                 "c": [
-                    200
+                    220
                 ],
                 "c2": [
                     250
@@ -411,7 +411,7 @@
                     0.6
                 ],
                 "k_1": [
-                    4.0
+                    3.7
                 ],
                 "k_force": [
                     0.001
@@ -528,10 +528,10 @@
     },
     "output_handler": {
         "output_data_path": [
-            "/mnt/gpfs2_4m/scratch/sba431/HCM_paper/baseline_final/baseline_final_test/sim_output/data.csv"
+            "/mnt/gpfs2_4m/scratch/sba431/HCM_paper/baseline_final/baseline_final_testc/sim_output/data.csv"
         ],
         "mesh_output_path": [
-            "/mnt/gpfs2_4m/scratch/sba431/HCM_paper/baseline_final/baseline_final_test/sim_output/"
+            "/mnt/gpfs2_4m/scratch/sba431/HCM_paper/baseline_final/baseline_final_testc/sim_output/"
         ],
         "mesh_object_to_save": [
             "displacement",
