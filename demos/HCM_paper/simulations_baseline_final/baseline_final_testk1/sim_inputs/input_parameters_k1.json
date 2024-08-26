@@ -1,23 +1,11 @@
 {
     "protocol": {
         "no_of_time_steps": [
-            15000
+            30000
         ],
         "time_step": [
             0.001
-        ],
-        "fiber_reorientation": {
-            "activations": [
-                {
-                    "t_start_s": [
-                        17
-                    ],
-                    "t_stop_s": [
-                        200000
-                    ]
-                }
-            ]
-        }
+        ]
     },
     "heart_rate": {
         "t_active_period": [
@@ -509,21 +497,6 @@
                     ]
                 }
             }
-        },
-        "fiber_reorientation": {
-            "stress_type": [
-                "total_stress"
-            ],
-            "law": [
-                "new_stress_kroon"
-            ],
-            "time_constant": [
-                4
-            ],
-            "reorient_t_start": [
-                0.5,
-                "ms"
-            ]
         }
     },
     "output_handler": {
