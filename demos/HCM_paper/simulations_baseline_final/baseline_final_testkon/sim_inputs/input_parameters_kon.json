@@ -1,23 +1,11 @@
 {
     "protocol": {
         "no_of_time_steps": [
-            10000
+            20000
         ],
         "time_step": [
             0.001
-        ],
-        "fiber_reorientation": {
-            "activations": [
-                {
-                    "t_start_s": [
-                        11
-                    ],
-                    "t_stop_s": [
-                        200000
-                    ]
-                }
-            ]
-        }
+        ]
     },
     "heart_rate": {
         "t_active_period": [
@@ -35,7 +23,7 @@
             true
         ],
         "mesh_path": [
-            "../demos/HCM_paper/simulations_baseline_final/baseline_final_testk1/sim_inputs/ellipsoidal.hdf5"
+            "../demos/HCM_paper/simulations_baseline_final/baseline_final_testkon/sim_inputs/ellipsoidal.hdf5"
         ],
         "function_spaces": [
             {
@@ -411,7 +399,7 @@
                     0.6
                 ],
                 "k_1": [
-                    4.0
+                    3.7
                 ],
                 "k_force": [
                     0.001
@@ -509,21 +497,6 @@
                     ]
                 }
             }
-        },
-        "fiber_reorientation": {
-            "stress_type": [
-                "total_stress"
-            ],
-            "law": [
-                "new_stress_kroon"
-            ],
-            "time_constant": [
-                4
-            ],
-            "reorient_t_start": [
-                0.5,
-                "ms"
-            ]
         }
     },
     "output_handler": {
