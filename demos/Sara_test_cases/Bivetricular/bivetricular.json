@@ -65,7 +65,7 @@
         },
         "mesh": {
             "relative_path": [true],
-            "mesh_path": ["../demos/Sara_test_cases/Bivetricular/ellipsoidal_LV_RV.hdf5"],
+            "mesh_path": ["../demos/Sara_test_cases/Bivetricular/ellipsoidal.hdf5"],
             "function_spaces": [
                 {
                     "name": ["stimulusFS"],
