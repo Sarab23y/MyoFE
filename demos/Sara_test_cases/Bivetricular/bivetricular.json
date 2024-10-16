@@ -1,17 +1,17 @@
 
     {
         "protocol": {
-            "no_of_time_steps": [10000],
+            "no_of_time_steps": [10],
             "time_step": [0.001],
             "fiber_reorientation": {
                 "activations": [
                     {
-                        "t_start_s": [30],
+                        "t_start_s": [1],
                         "t_stop_s": [300],
                         "ventricle": ["left"]
                     },
                     {
-                        "t_start_s": [30],
+                        "t_start_s": [1],
                         "t_stop_s": [300],
                         "ventricle": ["right"]
                     }
@@ -65,7 +65,7 @@
         },
         "mesh": {
             "relative_path": [true],
-            "mesh_path": ["../demos/Sara_test_cases/ellipsoidal_LV_RV.hdf5"],
+            "mesh_path": ["../demos/Sara_test_cases/Bivetricular/ellipsoidal_LV_RV.hdf5"],
             "function_spaces": [
                 {
                     "name": ["stimulusFS"],
