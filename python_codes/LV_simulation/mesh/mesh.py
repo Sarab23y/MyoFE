@@ -907,12 +907,12 @@ class MeshClass():
             dolfin.ALE.move(self.model['mesh'], ztrans)
 
             # Save mesh and facets to HDF5
-            hdf5_path = os.path.join(os.getcwd(), mesh_struct['meshname'] + ".hdf5")
+            hdf5_path = os.path.join(os.getcwd(), mesh_struct['BiV_Mesh'] + ".hdf5")
             f = dolfin.HDF5File(self.model['mesh'].mpi_comm(), hdf5_path, "w")
-            f.write(self.model['mesh'], mesh_struct['meshname'])
-            f.write(fenics_facet_ref, mesh_struct['meshname'] + "/" + "facetboundaries")
-            f.write(fenics_edge_ref, mesh_struct['meshname'] + "/" + "edgeboundaries")
-            f.write(matid, mesh_struct['meshname'] + "/" + "matid")
+            f.write(self.model['mesh'], mesh_struct['BiV_Mesh'])
+            f.write(fenics_facet_ref, mesh_struct['BiV_Mesh'] + "/" + "facetboundaries")
+            f.write(fenics_edge_ref, mesh_struct['BiV_Mesh'] + "/" + "edgeboundaries")
+            f.write(matid, mesh_struct['BiV_Mesh'] + "/" + "matid")
             f.close()
 
         else:
@@ -944,7 +944,7 @@ class MeshClass():
             "matid": matid,
             "isrotatept": False,
             "isreturn": True,
-            "outfilename": mesh_struct['meshname'],
+            "outfilename": mesh_struct['BiV_Mesh'],
             "outdirectory": mesh_struct['outdir'],
             "epiid": mesh_struct['epiid'],
             "rvid": mesh_struct['rvid'],
@@ -956,7 +956,7 @@ class MeshClass():
 
         # Save fiber orientations
         f = dolfin.HDF5File(self.model['mesh'].mpi_comm(), hdf5_path, "a")
-        f.write(ef, mesh_struct['meshname'] + "/" + "eF")
-        f.write(es, mesh_struct['meshname'] + "/" + "eS")
-        f.write(en, mesh_struct['meshname'] + "/" + "eN")
+        f.write(ef, mesh_struct['BiV_Mesh'] + "/" + "eF")
+        f.write(es, mesh_struct['BiV_Mesh'] + "/" + "eS")
+        f.write(en, mesh_struct['BiV_Mesh'] + "/" + "eN")
         f.close()
