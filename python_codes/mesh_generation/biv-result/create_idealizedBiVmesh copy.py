@@ -31,22 +31,22 @@ def main():
     # =====================
     # Step 1: Generate Mesh
     # =====================
-    print(f"Generating mesh from {geo_file}...")
+    print("Generating mesh from {}...".format(geo_file))
     if not os.path.exists(geo_file):
-        raise FileNotFoundError(f"{geo_file} not found. Ensure the .geo file exists.")
+        raise FileNotFoundError("{} not found. Ensure the .geo file exists.".format(geo_file))
 
-    gmsh_command = f'"{gmsh_path}" -3 "{geo_file}" -o "{vtk_file}"'
+    gmsh_command = '"{}" -3 "{}" -o "{}"'.format(gmsh_path, geo_file, vtk_file)
     os.system(gmsh_command)
 
     if not os.path.exists(vtk_file):
-        raise RuntimeError(f"Mesh generation failed. {vtk_file} not created.")
+        raise RuntimeError("Mesh generation failed. {} not created.".format(vtk_file))
 
-    print(f"Mesh generated: {vtk_file}")
+    print("Mesh generated: {}".format(vtk_file))
 
     # ===========================
     # Step 2: Process the Mesh
     # ===========================
-    print(f"Processing mesh: {vtk_file}...")
+    print("Processing mesh: {}...".format(vtk_file))
 
     # Read in the VTK mesh
     ugrid = vtk_py.readUGrid(vtk_file)
@@ -66,7 +66,7 @@ def main():
     # Save the rotated mesh
     rotated_file = os.path.join(directory, meshname + "_rot.vtk")
     vtk_py.writeUGrid(ugrid_rot, rotated_file)
-    print(f"Rotated mesh saved: {rotated_file}")
+    print("Rotated mesh saved: {}".format(rotated_file))
 
     # ==========================
     # Step 3: Extract FEniCS Mesh
@@ -95,8 +95,8 @@ def main():
     rv_vol = dolfin.assemble(rv_vol_form, form_compiler_parameters={"representation": "uflacs"})
 
     if rank == 0:
-        print(f"LV cavity volume: {lv_vol:.2f} ml")
-        print(f"RV cavity volume: {rv_vol:.2f} ml")
+        print("LV cavity volume: {:.2f} ml".format(lv_vol))
+        print("RV cavity volume: {:.2f} ml".format(rv_vol))
 
     # ============================
     # Step 5: Set Material Regions
@@ -124,12 +124,12 @@ def main():
         f.write(fenics_edge, meshname + "/edgeboundaries")
         f.write(matid, meshname + "/matid")
 
-    print(f"HDF5 file saved: {hdf5_file}")
+    print("HDF5 file saved: {}".format(hdf5_file))
 
     # Optional: Duplicate for refinement
     refined_file = os.path.join(directory, meshname + "_refine.hdf5")
-    os.system(f'copy "{hdf5_file}" "{refined_file}"')  # Windows uses `copy`
-    print(f"Refined HDF5 file saved: {refined_file}")
+    os.system('copy "{}" "{}"'.format(hdf5_file, refined_file))  # Windows uses copy
+    print("Refined HDF5 file saved: {}".format(refined_file))
 
 
 # ===========================================
