@@ -33,7 +33,7 @@ def main():
     # =====================
     print("Generating mesh from {}...".format(geo_file))
     if not os.path.exists(geo_file):
-        raise IOError("{} not found. Ensure the .geo file exists.".format(geo_file))
+        raise FileNotFoundError("{} not found. Ensure the .geo file exists.".format(geo_file))
 
     gmsh_command = '"{}" -3 "{}" -o "{}"'.format(gmsh_path, geo_file, vtk_file)
     os.system(gmsh_command)
