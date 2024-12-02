@@ -15,7 +15,7 @@ sys.path.append(r"C:\Users\sba431\biv-result\vtk_py")
 def main():
     
     gmsh_path = r"C:\Users\sba431\Downloads\gmsh-4.13.1-Windows64\gmsh-4.13.1-Windows64\gmsh.exe"  # Path to Gmsh executable
-    directory = r"C:\Users\sba431\biv-result"  # Directory to save all results
+    directory = r"C:\Users\sba431\Github\MyoFE\python_codes\mesh_generation\biv-result"  # Directory to save all results
     meshname = "biv_idealized3_generalized"  # Base name for mesh files
 
     # Paths for geo and vtk files
