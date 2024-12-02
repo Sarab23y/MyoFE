@@ -9,7 +9,7 @@ from vtk.util import numpy_support
 # Import vtk_py module (assumes the functions are available)
 import vtk_py
 import sys
-sys.path.append(r"C:\Users\sba431\biv-result\vtk_py")
+sys.path.append(r"C:\Users\sba431\Github\MyoFE\python_codes\mesh_generation\biv-result\vtk_py")
 
 
 def main():
