@@ -14,8 +14,9 @@ sys.path.append(r"C:\Users\sba431\biv-result\vtk_py")
 
 def main():
     
-    gmsh_path = r"C:\Users\sba431\Downloads\gmsh-4.13.1-Windows64\gmsh-4.13.1-Windows64\gmsh.exe"  # Path to Gmsh executable
-    directory = r"C:\Users\sba431\Github\MyoFE\python_codes\mesh_generation\biv-result"  # Directory to save all results
+    gmsh_path = r"C:\Users\sba431\Github\MyoFE\python_codes\mesh_generation\biv-result\gmsh-4.13.1-Windows64\gmsh.exe"  # Path to Gmsh executable
+    directory = r"C:\Users\sba431\Github\MyoFE\python_codes\mesh_generation\biv-result"
+ # Directory to save all results
     meshname = "biv_idealized3_generalized"  # Base name for mesh files
 
     # Paths for geo and vtk files
@@ -33,7 +34,8 @@ def main():
     # =====================
     print("Generating mesh from {}...".format(geo_file))
     if not os.path.exists(geo_file):
-        raise FileNotFoundError("{} not found. Ensure the .geo file exists.".format(geo_file))
+        print("Debug: Full path '{}' does not exist.".format(geo_file))
+        raise IOError("{} not found. Ensure the .geo file exists.".format(geo_file))
 
     gmsh_command = '"{}" -3 "{}" -o "{}"'.format(gmsh_path, geo_file, vtk_file)
     os.system(gmsh_command)
