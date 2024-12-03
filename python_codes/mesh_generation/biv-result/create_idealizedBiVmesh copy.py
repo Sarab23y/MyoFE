@@ -9,13 +9,13 @@ from vtk.util import numpy_support
 # Import vtk_py module (assumes the functions are available)
 import vtk_py
 import sys
-sys.path.append(r"C:\Users\sba431\Github\MyoFE\python_codes\mesh_generation\biv-result\vtk_py")
+sys.path.append(r"C:/Users/sba431/Github/MyoFE/python_codes/mesh_generation/biv-result/vtk_py")
 
 
 def main():
     
-    gmsh_path = r"C:\Users\sba431\Github\MyoFE\python_codes\mesh_generation\biv-result\gmsh-4.13.1-Windows64\gmsh.exe"  # Path to Gmsh executable
-    directory = r"C:\Users\sba431\Github\MyoFE\python_codes\mesh_generation\biv-result"
+    gmsh_path = r"C:/Users/sba431/Github/MyoFE/python_codes/mesh_generation/biv-result/gmsh-4.13.1-Windows64/gmsh.exe"  # Path to Gmsh executable
+    directory = r"C:/Users/sba431/Github/MyoFE/python_codes/mesh_generation/biv-result"
  # Directory to save all results
     meshname = "ellipsoidal"  # Base name for mesh files
 
