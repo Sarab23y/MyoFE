@@ -1,5 +1,4 @@
 
-sys.path.append(r"C:/Users/sba431/Github/MyoFE/python_codes/mesh_generation/biv-result/vtk_py")
 
 import os
 import vtk
