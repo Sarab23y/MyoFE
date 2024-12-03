@@ -17,7 +17,7 @@ def main():
     gmsh_path = r"C:/Users/sba431/Github/MyoFE/python_codes/mesh_generation/biv-result/gmsh-4.13.1-Windows64/gmsh.exe"  # Path to Gmsh executable
     directory = r"C:/Users/sba431/Github/MyoFE/python_codes/mesh_generation/biv-result"
  # Directory to save all results
-    meshname = "ellipsoidal"  # Base name for mesh files
+    meshname = "biv_idealized3_generalized"  # Base name for mesh files
 
     # Paths for geo and vtk files
     geo_file = os.path.join(directory, meshname + ".geo")
@@ -28,6 +28,13 @@ def main():
     # ===================================
     comm = pyMPI.COMM_WORLD
     rank = comm.Get_rank()
+    os.chdir(r"C:/Users/sba431/Github/MyoFE/python_codes/mesh_generation/biv-result")
+    print("Current working directory:", os.getcwd())
+    geo_file = os.path.join(directory, "biv_idealized3_generalized.geo")
+
+    print("Directory contents:", os.listdir(directory))
+    print("Looking for file:", geo_file)
+    print("File exists:", os.path.exists(geo_file))
 
     # =====================
     # Step 1: Generate Mesh
