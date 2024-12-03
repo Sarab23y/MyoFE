@@ -2,7 +2,7 @@
 """
 Created on Mon SEP 29 2024
 
-@author: SARA
+ SARA
 """
 
 import numpy as np
