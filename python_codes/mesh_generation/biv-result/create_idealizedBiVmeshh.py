@@ -10,6 +10,36 @@ from vtk_py.rotateUGrid import rotateUGrid
 from vtk_py.extractFeNiCsBiVFacet import extractFeNiCsBiVFacet
 from vtk_py.writeUGrid import writeUGrid
 
+
+def main():
+    gmsh_path = r"C:/Users/sba431/Github/MyoFE/python_codes/mesh_generation/biv-result/gmsh-4.13.1-Windows64/gmsh.exe"
+    directory = r"C:/Users/sba431/Github/MyoFE/python_codes/mesh_generation/biv-result"
+    meshname = "biv_idealized3_generalized"
+
+    geo_file = os.path.join(directory, meshname + ".geo")
+    vtk_file = os.path.join(directory, meshname + ".vtk")
+    rotated_file = os.path.join(directory, meshname + "_rot.vtk")
+    hdf5_file = os.path.join(directory, meshname + ".hdf5")
+
+    # Step 1: Generate Mesh
+    print("Step 1: Generating mesh...")
+    generate_mesh(geo_file, gmsh_path, vtk_file)
+
+    # Step 2: Process the Mesh
+    print("Step 2: Processing mesh...")
+    process_mesh(vtk_file, rotated_file)
+
+    # Step 3: Extract FEniCS Mesh
+    print("Step 3: Extracting FEniCS mesh...")
+    fenics_mesh, fenics_facet, fenics_edge = extract_fenics_mesh(rotated_file, directory, meshname)
+
+    # Step 4: Calculate Volumes
+    print("Step 4: Calculating volumes...")
+    calculate_volumes(fenics_mesh, fenics_facet)
+
+    # Step 5: Save to HDF5
+    print("Step 5: Saving to HDF5...")
+    save_to_hdf5(fenics_mesh, fenics_facet, fenics_edge, hdf5_file, meshname)
 def generate_mesh(geo_file, gmsh_path, output_vtk):
     """
     Generate mesh using GMSH from a .geo file.
@@ -82,36 +112,6 @@ def save_to_hdf5(fenics_mesh, fenics_facet, fenics_edge, output_file, meshname):
         f.write(fenics_facet, f"{meshname}/facetboundaries")
         f.write(fenics_edge, f"{meshname}/edgeboundaries")
     print(f"HDF5 file saved: {output_file}")
-
-def main():
-    gmsh_path = r"C:/Users/sba431/Github/MyoFE/python_codes/mesh_generation/biv-result/gmsh-4.13.1-Windows64/gmsh.exe"
-    directory = r"C:/Users/sba431/Github/MyoFE/python_codes/mesh_generation/biv-result"
-    meshname = "biv_idealized3_generalized"
-
-    geo_file = os.path.join(directory, meshname + ".geo")
-    vtk_file = os.path.join(directory, meshname + ".vtk")
-    rotated_file = os.path.join(directory, meshname + "_rot.vtk")
-    hdf5_file = os.path.join(directory, meshname + ".hdf5")
-
-    # Step 1: Generate Mesh
-    print("Step 1: Generating mesh...")
-    generate_mesh(geo_file, gmsh_path, vtk_file)
-
-    # Step 2: Process the Mesh
-    print("Step 2: Processing mesh...")
-    process_mesh(vtk_file, rotated_file)
-
-    # Step 3: Extract FEniCS Mesh
-    print("Step 3: Extracting FEniCS mesh...")
-    fenics_mesh, fenics_facet, fenics_edge = extract_fenics_mesh(rotated_file, directory, meshname)
-
-    # Step 4: Calculate Volumes
-    print("Step 4: Calculating volumes...")
-    calculate_volumes(fenics_mesh, fenics_facet)
-
-    # Step 5: Save to HDF5
-    print("Step 5: Saving to HDF5...")
-    save_to_hdf5(fenics_mesh, fenics_facet, fenics_edge, hdf5_file, meshname)
 
 if __name__ == "__main__":
     main()
