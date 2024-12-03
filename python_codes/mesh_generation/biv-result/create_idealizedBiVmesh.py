@@ -4,7 +4,7 @@ import vtk
 import dolfin
 from mpi4py import MPI as pyMPI
 from vtk.util import numpy_support
-#from tqdm import tqdm  # For progress visualization
+from tqdm import tqdm  # For progress visualization
 
 # Import vtk_py module (assumes the functions are available)
 import vtk_py
