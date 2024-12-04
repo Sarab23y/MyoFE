@@ -14,9 +14,9 @@ from vtk_py.writeUGrid import writeUGrid
 def main():
     gmsh_path = r"C:/Users/sba431/Github/MyoFE/python_codes/mesh_generation/biv-result/gmsh-4.13.1-Windows64/gmsh.exe"
     directory = r"C:/Users/sba431/Github/MyoFE/python_codes/mesh_generation/biv-result"
-    meshname = "biv_idealized3_generalized"
+    meshname = "ellipsoidal"
 
-    geo_file = os.path.join(directory, meshname + ".geo")
+    geo_file = os.path.join(directory+"/"+meshname + ".geo")
     vtk_file = os.path.join(directory, meshname + ".vtk")
     rotated_file = os.path.join(directory, meshname + "_rot.vtk")
     hdf5_file = os.path.join(directory, meshname + ".hdf5")
@@ -44,6 +44,8 @@ def generate_mesh(geo_file, gmsh_path, output_vtk):
     """
     Generate mesh using GMSH from a .geo file.
     """
+    print(geo_file)
+    
     if not os.path.exists(geo_file):
         raise IOError(f"{geo_file} not found. Ensure the .geo file exists.")
 
